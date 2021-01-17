@@ -1,0 +1,39 @@
+@import "colors";
+
+$bp : (
+  mobile  : 480px,
+  tablet  : 768px,
+  desktop : 1440px,
+);
+
+// screen and (min-width: 480px) {
+
+@mixin query($screen) {
+  @each $key,$value in $bp {
+    //  defining max-width
+    @if ($screen == $key and $screen !=four-k) {
+      @media screen and (max-width : $value){@content};
+    }
+    //  defining min-width
+    @if ($screen == four-k) {
+      @media screen and (min-width : $value){@content};
+    }
+  }
+}
+
+
+// Init
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  body{
+    font: 400 16px/1.5 "Dosis",sans-serif;
+    font-size:1em;
+    color: $fontColor;
+    p {
+     font-family: 'Libre Caslon Text', serif;
+    }
+  }
+}

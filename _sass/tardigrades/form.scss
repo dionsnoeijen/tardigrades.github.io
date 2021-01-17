@@ -1,0 +1,44 @@
+@import "colors";
+
+#mc_embed_signup {
+
+  #mc_embed_signup_scroll {
+    border: 1px solid $fontColor;
+    border-radius: 10px;
+    padding: 20px;
+    background: rgba(255, 255, 255, .5);
+    margin-top: 20px;
+
+    @include query(mobile) {
+      padding: 0;
+      border: none;
+    }
+
+    .mc-field-group {
+      margin: 5px;
+      input {
+        border: 1px solid $fontColor;
+        border-radius: 5px;
+        background: $blueLight;
+        padding: 10px;
+        width: 20em;
+        font-size: 1.6em;
+        @include query(mobile) {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    }
+
+    input[type=submit] {
+      border: 1px solid $fontColor;
+      background: $blueLight;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
+      &:hover {
+        background: $blueShade1;
+      }
+    }
+  }
+}

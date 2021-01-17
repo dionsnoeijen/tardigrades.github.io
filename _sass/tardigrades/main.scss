@@ -1,0 +1,421 @@
+@import "reset", "breakpoints", "colors", "sizes", "form";
+@import url("https://fonts.googleapis.com/css?family=Dosis:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+canvas {
+  position: fixed;
+  display: block;
+  background-color: white;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  @include query(mobile) {
+    display: none;
+  }
+}
+
+h1 {
+  font-weight: 400;
+}
+
+//Defining settings of all .box- classes with
+//Border color & placing text at Center.
+
+.row-three-cols {
+  display: grid;
+  place-items: normal;
+
+  grid-template-areas: "left center right";
+  grid-template-columns: minmax(25%, 200px) minmax(30%, 450px) auto;
+
+  margin: 0 auto 100px auto;
+  max-width: 900px;
+
+  @include query(tablet) {
+    max-width: 700px;
+    grid-template-columns: minmax(15%, 100px) minmax(30%, 450px) auto;
+  }
+
+  @include query(mobile) {
+    display: inline;
+    grid-template-areas: none;
+  }
+}
+
+.row-image {
+  margin: 0 auto;
+  max-width: 900px;
+  display: grid;
+  place-items: center;
+  grid-template-areas: "image";
+  img {
+    border: 2px solid white;
+  }
+}
+
+.row-cards {
+  margin: 100px auto 0 auto;
+  max-width: 900px;
+
+  display: grid;
+  place-items: normal;
+  grid-template-areas: "left right";
+
+  @include query(mobile) {
+    display: inherit;
+    grid-template-areas: none;
+    margin-bottom: 20px;
+  }
+
+  .right {
+    display: grid;
+    place-items: normal;
+    grid-template-areas:
+    "card card card"
+    "card card card";
+
+    @include query(mobile) {
+      grid-template-areas: none;
+    }
+
+    .card {
+      $cornerHeight: 30px;
+      position: relative;
+      margin-bottom: 35px;
+
+      @include query(mobile) {
+        margin: 20px;
+        margin-bottom: 40px;
+      }
+
+      .card-footer {
+        position: absolute;
+        bottom: -$cornerHeight;
+        border: none;
+        height: $cornerHeight;
+        left: 2px;
+        width: calc(100% - 35px);
+        background: $blueLight;
+
+        &:after {
+          content: " ";
+          position: absolute;
+          border-bottom: $cornerHeight solid transparent;
+          border-left: $cornerHeight solid $blueShade1;
+          width: 0;
+          height: 0;
+          right: -$cornerHeight;
+          top: 0;
+          background: transparent;
+        }
+      }
+
+      .inner-card {
+        margin: 0 2.5px 5px 2.5px;
+        background: $blueLight;
+        padding: 20px;
+        h2 {
+          margin-top: 10px;
+          line-height: 1.5rem;
+          margin-bottom: 20px;
+          font-weight: normal;
+        }
+        .icon {
+          width: 30px;
+        }
+      }
+    }
+  }
+}
+
+.row-subscribe {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  h3 {
+    margin-top: 100px;
+    img {
+      display: inline-block;
+      margin-bottom: -15px;
+    }
+  }
+
+  @include query(mobile) {
+    padding: 20px;
+  }
+}
+
+.container {
+  padding-top: 500px;
+  padding-bottom: 450px;
+  position: relative;
+  background: none;
+  z-index: 1;
+
+  @include query(mobile) {
+    padding-top: 0;
+    padding-bottom: 100px;
+  }
+}
+
+.left {
+  grid-area: left;
+  text-align: right;
+  padding-right: 2rem;
+  h1 {
+    line-height: 25px;
+    font-weight: 400;
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    border-bottom: 1px solid $fontColor;
+    position: relative;
+    font-size: 1.5em;
+    &:after {
+      content: " ";
+      position: absolute;
+      right: -20px;
+      bottom: -10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      background: white;
+      border: 1px solid $fontColor;
+    }
+
+    @include query(tablet) {
+      font-size: 1em;
+      padding-bottom: 5px;
+      font-weight: 700;
+      &:after {
+        right: -10px;
+        bottom: -5px;
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    @include query(mobile) {
+      border-bottom: none;
+      &:after {
+        content: none;
+      }
+    }
+  }
+  @include query(mobile) {
+    text-align: left;
+    padding: 0;
+  }
+}
+
+body > h1 {
+  @include query(mobile) {
+    display: none;
+  }
+}
+
+.center {
+  p {
+    margin-bottom: 10px;
+  }
+  a {
+    color: $fontColor;
+  }
+  padding-right: 2rem;
+  grid-area: center;
+  ul {
+    margin-top: 20px;
+    li {
+      list-style: none;
+      a {
+        color: $fontColor;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        img {
+          margin-right: 10px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  @include query(tablet) {
+    padding-left: 2rem;
+  }
+
+  @include query(mobile) {
+    padding: 20px;
+  }
+}
+
+.right {
+  grid-area: right;
+  img {
+    width: 400px;
+    @include query(mobile) {
+      display: none;
+    }
+
+    &.icon {
+      display: block !important;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $menuHeight;
+  border-bottom: .5px solid white;
+  z-index: 2;
+
+  @include query(mobile) {
+    position: relative;
+    padding-top: 51px;
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .logo-header {
+    display: block;
+    float: left;
+    position: absolute;
+    width: 100px;
+    height: $menuHeight - 20;
+    left: 20px;
+    top: ($menuHeight - ($menuHeight - 20)) / 2;
+
+    @include query(mobile) {
+      left: 50%;
+      margin-left: -50px;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: $menuHeight - 20;
+      width: 100px;
+    }
+
+    .dissolve {
+      @include query(mobile) {
+        display: none;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    float: right;
+    align-content: baseline;
+    @include query(mobile) {
+      float: none;
+      clear: both;
+      text-align: center;
+      background: rgba(255, 255, 255, .9);
+      border-top: 1px solid $fontColor !important;
+    }
+
+    li {
+      display: inline-block;
+      height: $menuHeight;
+      margin: 0;
+      padding-top: 10px;
+      text-decoration: none;
+
+      @include query(mobile) {
+        display: block;
+        border-bottom: 1px solid $fontColor !important;
+      }
+
+      &:last-child {
+        padding: 0;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px 15px;
+        &.button {
+          margin: 5px;
+          background: $blueShade1;
+        }
+        &:hover {
+          color: $fontColor;
+        }
+        @include query(mobile) {
+          color: $fontColor !important;
+        }
+      }
+
+      &.lined {
+        border-left: .5px solid white;
+        border-right: .5px solid white;
+      }
+    }
+  }
+}
+
+#philosophy {
+  margin-top: 150px;
+
+  .correction {
+    margin-top: -33%;
+  }
+}
+
+.footer {
+  position: relative;
+  width: 50%;
+  font-weight: normal;
+  margin-top: 150px;
+  float: right;
+  color: white;
+  padding-right: 40px;
+  @include query(mobile) {
+    color: $fontColor;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  p {
+    margin-top: 30px;
+  }
+  img {
+    position: absolute;
+    width: 160px;
+    top: 60%;
+    left: -60%;
+    @include query(mobile) {
+      display: none;
+    }
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
