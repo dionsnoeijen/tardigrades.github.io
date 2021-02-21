@@ -47,3 +47,7 @@
               url: /docs/sections-and-fields/sections/nodes/create.html
             - text: Read
               url: /docs/sections-and-fields/sections/nodes/read.html
+            - text: Update
+              url: /docs/sections-and-fields/sections/nodes/update.html
+            - text: Delete
+              url: /docs/sections-and-fields/sections/nodes/delete.html

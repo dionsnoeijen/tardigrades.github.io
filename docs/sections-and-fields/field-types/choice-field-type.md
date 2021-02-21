@@ -6,7 +6,30 @@ description: Field type configuration for the choice field type.
 
 # Choice field type
 
-The choice field provides a set of items a selection can be made from. Multiple or singular.
+The choice field provides a set of items a selection can be made from. 
+
+## Settings
+___
+
+### Multiple: True or false
+Allow selection of multiple choices.
+
+### Choices
+Add choices. A text and a value. If you would render a list fo choices the option `value` would be value, and the text of the option would be `text`. Like so:
+
+{% highlight html %}
+<select>
+    <option value="elementary">Elementary</option>
+    <option value="middleSchool">Middle School</option>
+    <option value="highSchool">High School</option>
+    <option value="university">University</option>
+</select>
+{% endhighlight %}
+
+## Example config
+___
+
+![Configuration](/assets/images/choice-field-type-config.png)
 
 ___
 

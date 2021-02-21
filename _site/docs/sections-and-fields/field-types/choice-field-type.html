@@ -369,6 +369,36 @@
     </li>
 
     
+    <li>
+        <a href="/docs/sections-and-fields/sections/nodes/update.html">
+            
+            Update
+            
+        </a>
+        
+
+<ul>
+    
+</ul>
+
+    </li>
+
+    
+    <li>
+        <a href="/docs/sections-and-fields/sections/nodes/delete.html">
+            
+            Delete
+            
+        </a>
+        
+
+<ul>
+    
+</ul>
+
+    </li>
+
+    
 </ul>
 
     </li>
@@ -390,7 +420,28 @@
             <div class="documentation">
                 <h1 id="choice-field-type">Choice field type</h1>
 
-<p>The choice field provides a set of items a selection can be made from. Multiple or singular.</p>
+<p>The choice field provides a set of items a selection can be made from.</p>
+
+<h2 id="settings">Settings</h2>
+<hr />
+
+<h3 id="multiple-true-or-false">Multiple: True or false</h3>
+<p>Allow selection of multiple choices.</p>
+
+<h3 id="choices">Choices</h3>
+<p>Add choices. A text and a value. If you would render a list fo choices the option <code class="highlighter-rouge">value</code> would be value, and the text of the option would be <code class="highlighter-rouge">text</code>. Like so:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;select&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"elementary"</span><span class="nt">&gt;</span>Elementary<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"middleSchool"</span><span class="nt">&gt;</span>Middle School<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"highSchool"</span><span class="nt">&gt;</span>High School<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"university"</span><span class="nt">&gt;</span>University<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span></code></pre></figure>
+
+<h2 id="example-config">Example config</h2>
+<hr />
+
+<p><img src="/assets/images/choice-field-type-config.png" alt="Configuration" /></p>
 
 <hr />
 
