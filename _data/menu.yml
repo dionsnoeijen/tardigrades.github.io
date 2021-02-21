@@ -1,0 +1,18 @@
+# Important: all URLs must have a trailing slash!
+- text: Introduction
+  url: /docs/
+- text: Sections
+  url: /docs/sections/sections.html
+  subitems:
+    - text: Nodes
+      url: /docs/sections/nodes/section-nodes.html
+      subitems:
+        - text: Create
+          url: /docs/sections/nodes/create/create.html
+        - text: Read
+          url: /docs/sections/nodes/read/read.html
+- text: FieldTypes
+  url: /docs/field-types/field-types.html
+  subitems:
+    - text: Choice
+      url: /docs/field-types/choice/choice-field-type.html

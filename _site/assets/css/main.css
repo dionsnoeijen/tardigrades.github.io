@@ -109,6 +109,9 @@ body, html {
   width: 100%;
   height: 100%;
   background-color: white; }
+  body.docs, html.docs {
+    height: auto;
+    padding-top: 100px; }
 
 canvas {
   position: fixed;
@@ -230,6 +233,46 @@ h1 {
       padding-top: 0;
       padding-bottom: 100px; } }
 
+.container-docs {
+  display: grid;
+  place-items: normal;
+  grid-template-areas: "navigation documentation";
+  grid-template-columns: minmax(25%, 200px) auto;
+  padding-bottom: 100px;
+  position: relative;
+  background: none;
+  z-index: 1; }
+  @media screen and (max-width: 768px) {
+    .container-docs {
+      max-width: 700px;
+      grid-template-columns: minmax(15%, 100px) auto; } }
+  @media screen and (max-width: 480px) {
+    .container-docs {
+      display: inline;
+      grid-template-areas: none; } }
+  @media screen and (max-width: 480px) {
+    .container-docs {
+      padding-top: 0;
+      padding-bottom: 100px; } }
+  .container-docs .navigation {
+    grid-area: navigation;
+    padding-left: 40px; }
+    .container-docs .navigation ul {
+      margin: 0;
+      padding: 0; }
+      .container-docs .navigation ul li {
+        list-style: none; }
+        .container-docs .navigation ul li a {
+          color: #454f6b;
+          text-decoration: none; }
+          .container-docs .navigation ul li a:hover {
+            color: black; }
+        .container-docs .navigation ul li ul {
+          margin-left: 10px; }
+  .container-docs .documentation {
+    grid-area: documentation;
+    padding-right: 40px; }
+
 .left {
   grid-area: left;
   text-align: right;
@@ -316,13 +359,15 @@ h1 {
       margin-bottom: 20px; }
 
 .menu {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 50px;
   border-bottom: .5px solid white;
   z-index: 2; }
+  .menu.fixed {
+    position: fixed; }
   @media screen and (max-width: 480px) {
     .menu {
       position: relative;
@@ -389,6 +434,10 @@ h1 {
       .menu ul li.lined {
         border-left: .5px solid white;
         border-right: .5px solid white; }
+  .menu.docs {
+    border-bottom: 1px solid #454f6b; }
+    .menu.docs ul li a {
+      color: #454f6b; }
 
 #philosophy {
   margin-top: 150px; }
