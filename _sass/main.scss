@@ -525,3 +525,14 @@ body > h1 {
     }
   }
 }
+
+.temp-info {
+  border: 1px solid green;
+  background-color: greenyellow;
+  color: green;
+  padding: 20px;
+  margin-bottom: 20px;
+  p {
+    font-family: "Dosis", sans-serif !important;
+  }
+}

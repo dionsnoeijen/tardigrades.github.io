@@ -772,3 +772,12 @@ hr {
     text-decoration: none; }
     .footer a:hover {
       text-decoration: underline; }
+
+.temp-info {
+  border: 1px solid green;
+  background-color: greenyellow;
+  color: green;
+  padding: 20px;
+  margin-bottom: 20px; }
+  .temp-info p {
+    font-family: "Dosis", sans-serif !important; }
