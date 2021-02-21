@@ -30,14 +30,14 @@
             gtag('config', 'G-TJX02CFX3K');
         </script>
         <meta charset="utf-8">
-        <title>Tardigrades |  | Documentation</title>
+        <title>Tardigrades | Sections and Fields | Documentation</title>
         <link href="/assets/css/main.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta property="og:description" content="">
-        <meta property="og:title" content="Tardigrades |  | Documentation">
-        <meta name="twitter:description" content="">
-        <meta name="twitter:title" content="Tardigrades |  | Documentation">
+        <meta name="description" content="Section and Field configuration documentation.">
+        <meta property="og:description" content="Section and Field configuration documentation.">
+        <meta property="og:title" content="Tardigrades | Sections and Fields | Documentation">
+        <meta name="twitter:description" content="Section and Field configuration documentation.">
+        <meta name="twitter:title" content="Tardigrades | Sections and Fields | Documentation">
     </head>
     <body class="docs">
         <div class="menu docs">
@@ -72,7 +72,7 @@
     <li>
         <a href="/docs/sections-and-fields/sections-and-fields.html">
             
-            Sections and fields
+            <b>Sections and fields</b>
             
         </a>
         
@@ -388,13 +388,26 @@
 
             </div>
             <div class="documentation">
-                <div class="container-docs">
-  <div class="documentation">
-    <h1>404</h1>
-    <p><strong>Page not found :(</strong></p>
-    <p>The requested page could not be found.</p>
-  </div>
-</div>
+                <h1 id="sections-and-fields">Sections and fields</h1>
+
+<p>Sections and fields are a concept to represent data structure. Sections are made up of fields, fields are based on field types. It’s as simple as that.</p>
+
+<p>To elaborate: A section is not nescessarily a table in a database where the fields are the columns. It <em>can</em> be that. A section is not a form, where the fields are the input fields. It <em>can</em> be that.</p>
+
+<p>Out of the box, it will represent a form, database structure and a way of retrieving and or storing data in a friendly manner, all based on the concept of sections and fields.</p>
+
+<ul>
+  <li><a href="./field-types/field-types.html">Field types</a></li>
+  <li><a href="./sections/sections.html">Sections</a></li>
+</ul>
+
+<hr />
+
+<h3 id="fun-fact">Fun fact</h3>
+
+<p>The name of the underlying library that facilitates the Section and Field functionality is SexyField. This name comes from the Dutch pronunciation of the word “Section” which sounds like “Sexy”. When this system was getting used by colleagues they were calling it SexyField instead of Section field, so yeah… The name changed quick enough.</p>
+
+<p>SexyField is an open source Symfony bundle licenced under MIT. It can be found here: <a href="https://github.com/dionsnoeijen/sexy-field-bundle">https://github.com/dionsnoeijen/sexy-field-bundle</a></p>
 
 
             </div>

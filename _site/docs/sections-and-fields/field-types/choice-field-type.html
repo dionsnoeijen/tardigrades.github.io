@@ -30,14 +30,14 @@
             gtag('config', 'G-TJX02CFX3K');
         </script>
         <meta charset="utf-8">
-        <title>Tardigrades |  | Documentation</title>
+        <title>Tardigrades | Choice field type | Documentation</title>
         <link href="/assets/css/main.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta property="og:description" content="">
-        <meta property="og:title" content="Tardigrades |  | Documentation">
-        <meta name="twitter:description" content="">
-        <meta name="twitter:title" content="Tardigrades |  | Documentation">
+        <meta name="description" content="Field type configuration for the choice field type.">
+        <meta property="og:description" content="Field type configuration for the choice field type.">
+        <meta property="og:title" content="Tardigrades | Choice field type | Documentation">
+        <meta name="twitter:description" content="Field type configuration for the choice field type.">
+        <meta name="twitter:title" content="Tardigrades | Choice field type | Documentation">
     </head>
     <body class="docs">
         <div class="menu docs">
@@ -122,7 +122,7 @@
     <li>
         <a href="/docs/sections-and-fields/field-types/choice-field-type.html">
             
-            Choice
+            <b>Choice</b>
             
         </a>
         
@@ -388,13 +388,39 @@
 
             </div>
             <div class="documentation">
-                <div class="container-docs">
-  <div class="documentation">
-    <h1>404</h1>
-    <p><strong>Page not found :(</strong></p>
-    <p>The requested page could not be found.</p>
-  </div>
-</div>
+                <h1 id="choice-field-type">Choice field type</h1>
+
+<p>The choice field provides a set of items a selection can be made from. Multiple or singular.</p>
+
+<hr />
+
+<h3 id="advanced">Advanced</h3>
+
+<p>If you want to configure a Choice Field type manually, for your backend, this is an example:</p>
+
+<p><code class="highlighter-rouge">/config/{application}/{section}/field/educationLevel.yml</code></p>
+
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="na">field</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Education level</span>
+    <span class="na">handle</span><span class="pi">:</span> <span class="s">educationLevel</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">Choice</span>
+    <span class="na">form</span><span class="pi">:</span>
+        <span class="na">all</span><span class="pi">:</span>
+            <span class="na">label</span><span class="pi">:</span> <span class="s">Education level</span>
+            <span class="na">multiple</span><span class="pi">:</span> <span class="no">false</span>
+            <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+            <span class="na">placeholder</span><span class="pi">:</span> <span class="s">choose_education_level</span>
+            <span class="na">choices</span><span class="pi">:</span>
+                <span class="na">Elementary</span><span class="pi">:</span> <span class="s">elementary</span>
+                <span class="na">Middle School</span><span class="pi">:</span> <span class="s">middleSchool</span>
+                <span class="na">High School</span><span class="pi">:</span> <span class="s">highSchool</span>
+                <span class="na">University</span><span class="pi">:</span> <span class="s">university</span>
+    <span class="na">generator</span><span class="pi">:</span>
+        <span class="na">entity</span><span class="pi">:</span>
+            <span class="na">validator</span><span class="pi">:</span>
+                <span class="na">NotBlank</span><span class="pi">:</span>
+                    <span class="na">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">form_error_not_blank'</span></code></pre></figure>
+
 
 
             </div>

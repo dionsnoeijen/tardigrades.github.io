@@ -36,3 +36,5 @@ sass:
 exclude:
   - CNAME
   - Gemfile
+
+highlighter: rouge

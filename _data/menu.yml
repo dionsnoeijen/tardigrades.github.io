@@ -1,18 +1,49 @@
 # Important: all URLs must have a trailing slash!
 - text: Introduction
   url: /docs/
-- text: Sections
-  url: /docs/sections/sections.html
+- text: Sections and fields
+  url: /docs/sections-and-fields/sections-and-fields.html
   subitems:
-    - text: Nodes
-      url: /docs/sections/nodes/section-nodes.html
+    - text: FieldTypes
+      url: /docs/sections-and-fields/field-types/field-types.html
       subitems:
-        - text: Create
-          url: /docs/sections/nodes/create/create.html
-        - text: Read
-          url: /docs/sections/nodes/read/read.html
-- text: FieldTypes
-  url: /docs/field-types/field-types.html
-  subitems:
-    - text: Choice
-      url: /docs/field-types/choice/choice-field-type.html
+        - text: Birthday
+          url: /docs/sections-and-fields/field-types/birthday-field-type.html
+        - text: Boolean
+          url: /docs/sections-and-fields/field-types/boolean-field-type.html
+        - text: Choice
+          url: /docs/sections-and-fields/field-types/choice-field-type.html
+        - text: Collection
+          url: /docs/sections-and-fields/field-types/collection-field-type.html
+        - text: Country
+          url: /docs/sections-and-fields/field-types/country-field-type.html
+        - text: DateTime
+          url: /docs/sections-and-fields/field-types/datetime-field-type.html
+        - text: DateTime Timezone
+          url: /docs/sections-and-fields/field-types/datetime-timezone-field-type.html
+        - text: Email
+          url: /docs/sections-and-fields/field-types/email-field-type.html
+        - text: Integer
+          url: /docs/sections-and-fields/field-types/integer-field-type.html
+        - text: Number
+          url: /docs/sections-and-fields/field-types/number-field-type.html
+        - text: Relationship
+          url: /docs/sections-and-fields/field-types/relationship-field-type.html
+        - text: Slug
+          url: /docs/sections-and-fields/field-types/slug-field-type.html
+        - text: TextInput
+          url: /docs/sections-and-fields/field-types/text-input-field-type.html
+        - text: TextArea
+          url: /docs/sections-and-fields/field-types/textarea-field-type.html
+        - text: Uuid
+          url: /docs/sections-and-fields/field-types/uuid-field-type.html
+    - text: Sections
+      url: /docs/sections-and-fields/sections/sections.html
+      subitems:
+        - text: Nodes
+          url: /docs/sections-and-fields/sections/nodes/section-nodes.html
+          subitems:
+            - text: Create
+              url: /docs/sections-and-fields/sections/nodes/create.html
+            - text: Read
+              url: /docs/sections-and-fields/sections/nodes/read.html

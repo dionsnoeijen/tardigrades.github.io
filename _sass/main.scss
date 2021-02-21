@@ -1,4 +1,4 @@
-@import "reset", "breakpoints", "colors", "sizes", "form";
+@import "reset", "breakpoints", "colors", "sizes", "form", "syntax-highlighting";
 @import url("https://fonts.googleapis.com/css?family=Dosis:400,700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -32,6 +32,12 @@ canvas {
 
 h1 {
   font-weight: 400;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid $fontColor;
+  margin: 20px auto;
 }
 
 //Defining settings of all .box- classes with
@@ -179,11 +185,11 @@ h1 {
   place-items: normal;
 
   grid-template-areas: "navigation documentation";
-  grid-template-columns: minmax(25%, 200px) auto;
+  grid-template-columns: 240px auto;
 
   @include query(tablet) {
     max-width: 700px;
-    grid-template-columns: minmax(15%, 100px) auto;
+    grid-template-columns: 100px auto;
   }
 
   @include query(mobile) {
@@ -226,6 +232,26 @@ h1 {
   .documentation {
     grid-area: documentation;
     padding-right: 40px;
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-left: 30px;
+      li {
+        a {
+          color: $fontColor;
+          &:hover {
+            color: black;
+          }
+        }
+      }
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
   }
 }
 
