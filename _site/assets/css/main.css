@@ -516,7 +516,7 @@ hr {
   z-index: 1; }
   @media screen and (max-width: 480px) {
     .container {
-      padding-top: 0;
+      padding-top: 350px;
       padding-bottom: 100px; } }
 
 .container-docs {
@@ -667,6 +667,8 @@ hr {
   z-index: 2; }
   .menu.fixed {
     position: fixed; }
+  .menu.darkened {
+    background: rgba(0, 0, 0, 0.5); }
   @media screen and (max-width: 480px) {
     .menu {
       position: relative;
