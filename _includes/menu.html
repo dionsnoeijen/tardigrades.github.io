@@ -1,9 +1,19 @@
-<div class="menu{% if include.logo == 'dissolve' %} fixed{% else %} docs{% endif %}">
+<div class="menu{% if include.logo == 'dissolve' %} fixed{% else %} docs{% endif %} {{ layout.menu_variant }}">
+    {% if layout.menu_variant == 'darkened' %}
+    <a class="logo-header" href="/">
+        <img src="/assets/images/tardigrades-logo-inverted-text-color.svg" alt="Tardigrades" />
+        {% if include.logo == 'dissolve' %}
+        <img src="/assets/images/tardigrades-logo.svg" class="dissolve" alt="Tardigrades" />
+        {% endif %}
+    </a>
+    <ul><li><a href="/docs/index.html">Documentation</a></li></ul>
+    {% else %}
     <a class="logo-header" href="{% if include.logo == 'dissolve' %}#top{%else%}/{% endif %}">
         <img src="/assets/images/tardigrades-logo-inverted-text-color.svg" alt="Tardigrades" />
         {% if include.logo == 'dissolve' %}
         <img src="/assets/images/tardigrades-logo.svg" class="dissolve" alt="Tardigrades" />
         {% endif %}
     </a>
-    <ul>{% if include.logo == 'dissolve' %}<li><a href="#what-is-it">What is it</a></li><li><a href="#full-featured">Full featured</a></li><li><a href="#philosophy">Philosophy</a></li><li><a href="#about-me">About me</a></li>{% endif %}<li><a href="/docs/index.html">Documentation</a></li><!--<li class="lined"><a href="/weblog">Weblog</a></li>--></ul>
+    <ul>{% if include.logo == 'dissolve' %}<li><a href="#what-is-it">What is it</a></li><li><a href="#full-featured">Full featured</a></li><li><a href="#philosophy">Philosophy</a></li><li><a href="#about-me">About me</a></li>{% endif %}<li><a href="/octopus">The Octopus</a></li><li><a href="/docs/index.html">Documentation</a></li><!--<li class="lined"><a href="/weblog">Weblog</a></li>--></ul>
+    {% endif %}
 </div>

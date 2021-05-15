@@ -8,7 +8,6 @@ body, html {
   width: 100%;
   height: 100%;
   background-color: white;
-
   &.docs {
     height: auto;
     padding-top: 100px;
@@ -24,7 +23,6 @@ canvas {
   right: 0;
   bottom: 0;
   left: 0;
-
   @include query(mobile) {
     display: none;
   }
@@ -93,8 +91,8 @@ hr {
     display: grid;
     place-items: normal;
     grid-template-areas:
-    "card card card"
-    "card card card";
+      "card card card"
+      "card card card";
 
     @include query(mobile) {
       grid-template-areas: none;
@@ -104,12 +102,10 @@ hr {
       $cornerHeight: 30px;
       position: relative;
       margin-bottom: 35px;
-
       @include query(mobile) {
         margin: 20px;
         margin-bottom: 40px;
       }
-
       .card-footer {
         position: absolute;
         bottom: -$cornerHeight;
@@ -175,7 +171,7 @@ hr {
   z-index: 1;
 
   @include query(mobile) {
-    padding-top: 0;
+    padding-top: 400px;
     padding-bottom: 100px;
   }
 }
@@ -287,7 +283,6 @@ hr {
     }
 
     @include query(tablet) {
-      font-size: 1em;
       padding-bottom: 5px;
       font-weight: 700;
       &:after {
@@ -299,6 +294,7 @@ hr {
     }
 
     @include query(mobile) {
+      font-size: 1.5em;
       border-bottom: none;
       &:after {
         content: none;
@@ -326,25 +322,6 @@ body > h1 {
   }
   padding-right: 2rem;
   grid-area: center;
-  ul {
-    margin-top: 20px;
-    li {
-      list-style: none;
-      a {
-        color: $fontColor;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        img {
-          margin-right: 10px;
-          display: inline-block;
-        }
-      }
-    }
-  }
 
   @include query(tablet) {
     padding-left: 2rem;
@@ -352,6 +329,27 @@ body > h1 {
 
   @include query(mobile) {
     padding: 20px;
+  }
+}
+
+ul.social {
+  margin-top: 20px;
+  text-align: left;
+  li {
+    list-style: none;
+    a {
+      color: $fontColor;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      img {
+        margin-right: 10px;
+        display: inline-block;
+      }
+    }
   }
 }
 
@@ -418,6 +416,16 @@ body > h1 {
     }
   }
 
+  &.darkened {
+    .logo-header {
+      .dissolve {
+        @include query(mobile) {
+          display: block !important;
+        }
+      }
+    }
+  }
+
   ul {
     list-style: none;
     float: right;
@@ -470,9 +478,25 @@ body > h1 {
     }
   }
 
+  &.darkened {
+    background: rgba(0, 0, 0, .5);
+    ul {
+      @include query(mobile) {
+        background: rgba(0, 0, 0, .5);
+        border-top: 1px solid white !important;
+      }
+      li {
+        a {
+          @include query(mobile) {
+            color: white !important;
+          }
+        }
+      }
+    }
+  }
+
   &.docs {
     border-bottom: 1px solid $fontColor;
-
     ul {
       li {
         a {

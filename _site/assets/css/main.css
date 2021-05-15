@@ -71,11 +71,33 @@ select {
     * body p {
       font-family: 'Libre Caslon Text', serif; }
 
-#mc_embed_signup #mc_embed_signup_scroll {
+#mc_embed_signup.blue #mc_embed_signup_scroll {
   border: 1px solid #454f6b;
+  background: rgba(255, 255, 255, 0.5); }
+  #mc_embed_signup.blue #mc_embed_signup_scroll .mc-field-group input {
+    border: 1px solid #454f6b;
+    background: #f2ffff; }
+  #mc_embed_signup.blue #mc_embed_signup_scroll input[type=submit] {
+    border: 1px solid #454f6b;
+    background: #f2ffff; }
+    #mc_embed_signup.blue #mc_embed_signup_scroll input[type=submit]:hover {
+      background: #ddf5f5; }
+#mc_embed_signup.black #mc_embed_signup_scroll {
+  border: none;
+  background: transparent; }
+  #mc_embed_signup.black #mc_embed_signup_scroll .mc-field-group input {
+    color: white;
+    border: 1px solid white;
+    background: transparent; }
+  #mc_embed_signup.black #mc_embed_signup_scroll input[type=submit] {
+    color: white;
+    border: 1px solid white;
+    background: transparent; }
+    #mc_embed_signup.black #mc_embed_signup_scroll input[type=submit]:hover {
+      background: rgba(255, 255, 255, 0.2); }
+#mc_embed_signup #mc_embed_signup_scroll {
   border-radius: 10px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.5);
   margin-top: 20px; }
   @media screen and (max-width: 480px) {
     #mc_embed_signup #mc_embed_signup_scroll {
@@ -84,9 +106,7 @@ select {
   #mc_embed_signup #mc_embed_signup_scroll .mc-field-group {
     margin: 5px; }
     #mc_embed_signup #mc_embed_signup_scroll .mc-field-group input {
-      border: 1px solid #454f6b;
       border-radius: 5px;
-      background: #f2ffff;
       padding: 10px;
       width: 20em;
       font-size: 1.6em; }
@@ -95,13 +115,9 @@ select {
           width: 100%;
           margin: 0; } }
   #mc_embed_signup #mc_embed_signup_scroll input[type=submit] {
-    border: 1px solid #454f6b;
-    background: #f2ffff;
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px; }
-    #mc_embed_signup #mc_embed_signup_scroll input[type=submit]:hover {
-      background: #ddf5f5; }
 
 .highlight .hll {
   background-color: #49483e; }
@@ -516,7 +532,7 @@ hr {
   z-index: 1; }
   @media screen and (max-width: 480px) {
     .container {
-      padding-top: 350px;
+      padding-top: 400px;
       padding-bottom: 100px; } }
 
 .container-docs {
@@ -598,7 +614,6 @@ hr {
       border: 1px solid #454f6b; }
     @media screen and (max-width: 768px) {
       .left h1 {
-        font-size: 1em;
         padding-bottom: 5px;
         font-weight: 700; }
         .left h1:after {
@@ -608,6 +623,7 @@ hr {
           height: 10px; } }
     @media screen and (max-width: 480px) {
       .left h1 {
+        font-size: 1.5em;
         border-bottom: none; }
         .left h1:after {
           content: none; } }
@@ -627,24 +643,26 @@ hr {
     margin-bottom: 10px; }
   .center a {
     color: #454f6b; }
-  .center ul {
-    margin-top: 20px; }
-    .center ul li {
-      list-style: none; }
-      .center ul li a {
-        color: #454f6b;
-        text-decoration: none; }
-        .center ul li a:hover {
-          text-decoration: underline; }
-        .center ul li a img {
-          margin-right: 10px;
-          display: inline-block; }
   @media screen and (max-width: 768px) {
     .center {
       padding-left: 2rem; } }
   @media screen and (max-width: 480px) {
     .center {
       padding: 20px; } }
+
+ul.social {
+  margin-top: 20px;
+  text-align: left; }
+  ul.social li {
+    list-style: none; }
+    ul.social li a {
+      color: #454f6b;
+      text-decoration: none; }
+      ul.social li a:hover {
+        text-decoration: underline; }
+      ul.social li a img {
+        margin-right: 10px;
+        display: inline-block; }
 
 .right {
   grid-area: right; }
@@ -667,8 +685,6 @@ hr {
   z-index: 2; }
   .menu.fixed {
     position: fixed; }
-  .menu.darkened {
-    background: rgba(0, 0, 0, 0.5); }
   @media screen and (max-width: 480px) {
     .menu {
       position: relative;
@@ -696,6 +712,9 @@ hr {
     @media screen and (max-width: 480px) {
       .menu .logo-header .dissolve {
         display: none; } }
+  @media screen and (max-width: 480px) {
+    .menu.darkened .logo-header .dissolve {
+      display: block !important; } }
   .menu ul {
     list-style: none;
     float: right;
@@ -735,6 +754,15 @@ hr {
       .menu ul li.lined {
         border-left: .5px solid white;
         border-right: .5px solid white; }
+  .menu.darkened {
+    background: rgba(0, 0, 0, 0.5); }
+    @media screen and (max-width: 480px) {
+      .menu.darkened ul {
+        background: rgba(0, 0, 0, 0.5);
+        border-top: 1px solid white !important; } }
+    @media screen and (max-width: 480px) {
+      .menu.darkened ul li a {
+        color: white !important; } }
   .menu.docs {
     border-bottom: 1px solid #454f6b; }
     .menu.docs ul li a {

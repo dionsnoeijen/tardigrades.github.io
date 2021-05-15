@@ -1,0 +1,548 @@
+@import "breakpoints";
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+
+body, html {
+  background: rgb(0, 0, 0);
+  overflow-x: hidden;
+  height: auto;
+  color: white;
+  font-family: "Dosis", sans-serif !important;
+}
+
+body {
+  background-image:
+          url('/assets/images/deco-a.png'),
+          url('/assets/images/deco-b.png'),
+          url('/assets/images/deco-c.png'),
+          url('/assets/images/deco-d.png'),
+          url('/assets/images/deco-e.png'),
+          url('/assets/images/top-tentacles.png'),
+          url('/assets/images/middle-tentacle.png'),
+          url('/assets/images/bottom-tentacles.png');
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 400px, 400px, 400px, 400px, 500px, 100%, 100%, 100%;
+  background-position:  0 25%, 0 52%, 0 60%, 100% 60%, 0 75%, 0 75vw, 0 40%, 0 100%;
+}
+
+h1 {
+  font-weight: bold;
+  text-shadow: 0 0 20px #000000;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+  counter-reset: item;
+}
+
+ol > li {
+  margin: 0 0 5px 0;
+  padding: 0;
+  text-indent: -1em;
+  list-style-type: none;
+  counter-increment: item;
+}
+
+ol > li:before {
+  display: inline-block;
+  width: 1em;
+  padding-right: .5em;
+  font-weight: bold;
+  text-align: left;
+  content: counter(item) ".";
+}
+
+.header {
+  position: absolute;
+  background: url('/assets/images/octopus-header.png') no-repeat;
+  background-size: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 75vw;
+  text-align: center;
+}
+
+.glitch-container {
+  position: absolute;
+  transform: translate(-50%, 0);
+  bottom: 30%;
+  left: 49%;
+}
+
+.glitch {
+  color: rgb(255, 255, 255);
+  position: relative;
+  font-size: 140px;
+  animation: glitch 5s 5s infinite;
+  font-family: "Oswald", sans-serif;
+  font-style: italic;
+  @include query(mobile) {
+    font-size: 80px;
+  }
+}
+
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: -5px 0 magenta;
+  background: transparent;
+  overflow: hidden;
+  top: 0;
+  animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+}
+
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -5px 0 lightgreen;
+  background: transparent;
+  overflow: hidden;
+  top: 0;
+  animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+}
+
+@keyframes glitch {
+  1%{
+    transform: rotateX(10deg) skewX(90deg);
+  }
+  2%{
+    transform: rotateX(0deg) skewX(0deg);
+  }
+}
+
+@keyframes noise-1 {
+  $steps: 30;
+  @for $i from 1 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101 - $top);
+      clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+    }
+  }
+}
+
+@keyframes noise-2 {
+  $steps: 30;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101 - $top);
+      clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+    }
+  }
+}
+
+@keyframes fudge {
+  from {
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(0px, 2%);
+  }
+}
+
+.glow {
+  @extend .glitch;
+  text-shadow: 0 0 1000px rgb(118, 255, 228);
+  color: transparent;
+  position: absolute;
+  top: 0;
+}
+
+@keyframes glitch-2 {
+  1%{
+    transform: rotateX(10deg) skewX(70deg);
+  }
+  2%{
+    transform: rotateX(0deg) skewX(0deg);
+  }
+}
+
+// Subglitch
+
+@mixin glitchCopy {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.subglitch {
+  position: relative;
+  color: white;
+  font-size: 3em;
+  @include query(mobile) {
+    font-size: 2em;
+  };
+  /* Animation provies a slight random skew. Check bottom of doc
+  for more information on how to random skew. */
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+
+  // Creates a copy before our text.
+  &::before{
+    // Duplicates our text with the mixin.
+    @include glitchCopy;
+    // Scoots text slightly to the left for the color offset.
+    left: 2px;
+    // Creates the color 'shadow' that happens on the glitch.
+    text-shadow: -2px 0 #ff00c1;
+    /* Creates an initial clip for our glitch. This works in
+    a typical top,right,bottom,left fashion and creates a mask
+    to only show a certain part of the glitch at a time. */
+    clip: rect(44px, 450px, 56px, 0);
+    /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+    with an alternating animation to keep things fresh. */
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+
+  // Creates a copy after our text. Note comments from ::before.
+  &::after {
+    @include glitchCopy;
+    left: -2px;
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+  }
+
+  &.head {
+    font-weight: normal;
+    font-size: 2em;
+    @include query(mobile) {
+      font-size: 1.5em;
+    }
+    margin-top: 50vw;
+  }
+}
+
+/* Creates an animation with 20 steaps. For each step, it calculates
+a percentage for the specific step. It then generates a random clip
+box to be used for the random glitch effect. Also adds a very subtle
+skew to change the 'thickness' of the glitch.*/
+@keyframes glitch-anim {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+      transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+// Same deal, just duplicated for ultra randomness.
+@keyframes glitch-anim2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+      transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+// Does the same deal as before, but now only skews. Used for main text.
+@keyframes glitch-skew {
+  $steps: 10;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      transform: skew((random(10) - 5) + deg);
+    }
+  }
+}
+
+// Text blocks
+
+#data-model,
+#read,
+#routes,
+#create,
+#update,
+#delete,
+#foot,
+#hello-world {
+  margin-bottom: 100px;
+}
+
+#hello-world {
+  margin-top: calc(75vw + 100px);
+  @include query(mobile) {
+    margin-top: calc(75vw + 150px);
+  }
+}
+
+.row-one-col-center {
+  .text {
+    padding: 0 30%;
+    p {
+      font-family: "Dosis", sans-serif !important;
+    }
+  }
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.row-one-col-left {
+  .text {
+    padding: 0 30%;
+    p {
+      font-family: "Dosis", sans-serif !important;
+      text-shadow: 0 0 20px #000000;
+    }
+    h3 {
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px #000000;
+    }
+  }
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+
+.row-two-cols-center {
+  display: grid;
+  place-items: center;
+  align-items: start;
+  @include query(mobile) {
+    align-items: normal;
+  }
+  grid-template-areas: "head head head" "left center right";
+  margin-bottom: 100px;
+  h1 {
+    grid-area: head;
+    font-family: "Dosis", sans-serif !important;
+    font-weight: bold;
+    line-height: 2em;
+    text-shadow: 0 0 20px #000000;
+  }
+  .left {
+    grid-area: left;
+    text-align: right;
+    padding-left: 30%;
+    padding-right: 5px;
+    width: 100%;
+    @include query(mobile) {
+      grid-area: center;
+      text-align: center;
+      padding: 0;
+    }
+    p {
+      font-family: "Dosis", sans-serif !important;
+      text-shadow: 0 0 20px #000000;
+    }
+  }
+  .right {
+    grid-area: right;
+    text-align: left;
+    padding-right: 30%;
+    padding-left: 5px;
+    width: 100%;
+    @include query(mobile) {
+      grid-area: center;
+      text-align: center;
+      padding: 0;
+      margin-top: 250px;
+    }
+    p {
+      font-family: "Dosis", sans-serif !important;
+      text-shadow: 0 0 20px #000000;
+    }
+  }
+}
+
+.aesthetic-grid {
+  border-top: .5px solid white;
+  border-bottom: .5px solid white;
+  &.grey {
+    background-color: rgba(50, 50, 50, .7);
+  }
+  p {
+    font-family: "Dosis", sans-serif !important;
+    text-align: right;
+    padding-right: 20px;
+    line-height: 0;
+    text-shadow: 0 0 20px #000000;
+  }
+  background: repeating-linear-gradient(
+                  0deg,
+                  transparent 0,
+                  transparent 9px,
+                  rgb(75, 75, 75) 9px,
+                  rgb(75, 75, 75) 10px
+  )
+  0 0 / 100px 100px repeat,
+  repeating-linear-gradient(
+                  90deg,
+                  transparent 0,
+                  transparent 9px,
+                  rgb(75, 75, 75) 9px,
+                  rgb(75, 75, 75) 10px
+  )
+  0 0 / 100px 100px repeat,
+  repeating-linear-gradient(
+                  0deg,
+                  rgb(80, 80, 80) -0.5px,
+                  rgb(80, 80, 80) 1px,
+                  transparent 1px,
+                  transparent 99.5px
+  )
+  0 0 / 100px 100px repeat,
+  repeating-linear-gradient(
+                  90deg,
+                  rgb(80, 80, 80) -0.5px,
+                  rgb(80, 80, 80) 1px,
+                  transparent 1px,
+                  transparent 99.5px
+  )
+  0 0 / 100px 100px repeat,
+  rgba(0, 0, 0, .5);
+  padding: 100px;
+  @include query(mobile) {
+    padding: 30px;
+  }
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.slider {
+  position: relative;
+  transition: all .3s ease;
+
+  .slide {
+    position: absolute;
+    left: -100%;
+    width: 80%;
+    opacity: 0;
+    transition: all .3s ease;
+    &.image {
+
+    }
+    &.text {
+      text-align: center;
+      p {
+        font-family: "Dosis", sans-serif !important;
+        text-shadow: 0 0 20px #000000;
+      }
+    }
+  }
+  .to {
+    position: absolute;
+    top: -100px;
+    bottom: -100px;
+    width: 20%;
+    transition: all .3s ease;
+    &.left {
+      left: -100px;
+    }
+    &.right {
+      right: -100px;
+    }
+    &:hover {
+      cursor: pointer;
+      background: rgba(255, 255, 255, .1);
+      .arrow {
+        border: solid rgba(255, 255, 255, .8);
+        border-width: 0 15px 15px 0;
+        top: calc(50% - 32.5px);
+        &.right {
+          left: 10%;
+        }
+        &.left {
+          right: 10%;
+        }
+      }
+    }
+    .arrow {
+      position: absolute;
+      transition: all .3s ease;
+      top: calc(50% - 30px);
+      border: solid rgba(255, 255, 255, .2);
+      border-width: 0 10px 10px 0;
+      display: inline-block;
+      padding: 30px;
+      &.right {
+        left: 20%;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+      }
+      &.left {
+        right: 20%;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+      }
+    }
+  }
+  ul.slider-nav {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 45%;
+    bottom: -80px;
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: inline-block;
+      opacity: .4;
+      transition: all .3s ease;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+      button {
+        cursor: pointer;
+        border: 1px solid white;
+        width: 14px;
+        height: 14px;
+        margin: 2.5px;
+        background: transparent;
+      }
+    }
+  }
+}
+
+ul.social {
+  text-align: center;
+  li {
+    a {
+      img {
+        filter: invert(100%) sepia(4%) saturate(15%) hue-rotate(8deg) brightness(103%) contrast(105%);
+      }
+      color: white;
+    }
+  }
+}
+
+ul.submenu {
+  position: absolute;
+  border-bottom: .5px solid white;
+  bottom: 0;
+  @include query(mobile) {
+    bottom: -100px;
+    border-top: .5px solid white;
+    background: black;
+  }
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  li {
+    margin: 0 10px;
+    border-bottom: .5px solid rgba(255, 255, 255, .3);
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    display: inline-block;
+    @include query(mobile) {
+      display: block;
+    }
+  }
+}
+
+figure.highlight {
+  margin: 20px 30% 0 30%;
+  background: rgba(40, 40, 40, .5);
+}
